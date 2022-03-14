@@ -36,15 +36,15 @@
   list-style: none;
   padding: 0.5rem 1rem;
   color: #fefefe;
-  .ball {
-    background-color: white;
-    width: 16px;
-    height: 16px;
-    border-radius: 50px;
-    position: fixed;
-    left: -8px;
-    margin-top: 3px;
-  }
+}
+.ball {
+  background-color: white;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  position: fixed;
+  left: -8px;
+  margin-top: 3px;
 }
 
 @media screen and (max-width: 768px) {

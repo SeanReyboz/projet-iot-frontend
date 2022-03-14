@@ -10,21 +10,27 @@ export default function NavBar() {
     <nav className={styles.container}>
       <Profile />
       <ul className={styles.container__entry} role="navigation">
-        <li className={styles.container__entryItem}>
+        <li
+          className={`${styles.container__entryItem} ${
+            router.pathname == "/" ? styles.outline : ""
+          }`}
+        >
           <div className={router.pathname == "/" ? styles.ball : ""}></div>
-          <Link href="/">Dashboard</Link>
+          <Link href="/">
+            <img className={styles.icons} src="/icons/home.svg" />
+          </Link>
         </li>
-        <li className={styles.container__entryItem}>
-          <div
-            className={router.pathname == "/profile" ? styles.ball : ""}
-          ></div>
-          <Link href="/profile">Profile</Link>
-        </li>
-        <li className={styles.container__entryItem}>
+        <li
+          className={`${styles.container__entryItem} ${
+            router.pathname == "/parameter" ? styles.outline : ""
+          }`}
+        >
           <div
             className={router.pathname == "/parameter" ? styles.ball : ""}
           ></div>
-          <Link href="/parameter">Paramètres</Link>
+          <Link href="/parameter">
+            <img className={styles.icons} src="icons/parameter.svg" />
+          </Link>
         </li>
       </ul>
     </nav>
@@ -32,25 +38,21 @@ export default function NavBar() {
 }
 
 function Profile() {
+  const router = useRouter()
   return (
     <div className="linkContainer">
+      <div
+        className={router.pathname == "/profile" ? styles.ballprofile : ""}
+      ></div>
       <Link href="/profile" shallow={false}>
         <img
           src="//picsum.photos/100/100"
           alt="Profile picture"
-          style={profilePic}
+          className={`${styles.profilePic} ${
+            router.pathname == "/profile" ? styles.halo : ""
+          }`}
         />
       </Link>
     </div>
   )
-}
-
-const profilePic = {
-  borderRadius: "999px",
-  display: "block",
-  obejectFit: "cover",
-  width: "5rem",
-  height: "5rem",
-  border: "3px solid #ededed",
-  cursor: "pointer",
 }

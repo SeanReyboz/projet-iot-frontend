@@ -9,8 +9,7 @@
   align-items: center;
   gap: 20%;
   background-color: #1e1e24;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 0 30px 30px 0;
 
   @media screen and (max-width: 768px) {
     top: unset;
@@ -34,17 +33,44 @@
 
 .container__entryItem {
   list-style: none;
-  padding: 0.5rem 1rem;
+  padding: 12px 12px;
   color: #fefefe;
 }
-.ball {
+.ball,
+.ballprofile {
   background-color: white;
   width: 16px;
   height: 16px;
   border-radius: 50px;
   position: fixed;
   left: -8px;
-  margin-top: 3px;
+  margin-top: 16px;
+}
+.ballprofile {
+  margin-top: 104px;
+}
+.profilePic {
+  border-radius: 999px;
+  display: block;
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+  margin-top: 72px;
+  border: 3px solid #1e1e24;
+}
+.halo {
+  //box-shadow: 0px 0px 54px 0px #fff;
+  border: 3px solid #ededed;
+}
+.icons {
+  max-width: 48px;
+  max-height: 48px;
+  cursor: pointer;
+}
+.outline {
+  background-color: #474747;
+  border-radius: 24px;
 }
 
 @media screen and (max-width: 768px) {

@@ -87,6 +87,7 @@ const ListItem = ({ item, styles }) => {
           Résumé de la semaine
         </h2>
         <div
+          className={styles.card}
           style={{
             display: "flex",
             gap: "32px",
@@ -150,14 +151,26 @@ const ListItem = ({ item, styles }) => {
           Évolution
         </h2>
         <div
+          className={styles.evolution}
           style={{
-            minHeight: "400px",
+            minHeight: "fit-content",
             borderRadius: "20px",
             backgroundColor: "#FBFBE7",
             border: "solid 1px #EAEAEA",
           }}
         >
-          <Chart type="bar" data={data} />
+          <Chart
+            type="bar"
+            data={data}
+            options={{
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "bottom",
+                },
+              },
+            }}
+          />
         </div>
       </section>
     </>

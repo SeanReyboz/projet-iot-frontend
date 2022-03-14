@@ -10,6 +10,7 @@ export default function NavBar() {
       <Profile />
       <ul className={styles.container__entry} role="navigation">
         <li className={styles.container__entryItem}>
+          <div className={styles.ball}></div>
           <Link href="/">Dashboard</Link>
         </li>
         <li className={styles.container__entryItem}>

@@ -1,5 +1,5 @@
 import Layout from "../app/components/layout"
-import Dashboard from "../app/components/dashboard"
+import Dashboard from "../app/components/setting"
 
 import styles from "../app/styles/Home.module.css"
 

@@ -1,7 +1,7 @@
-import Layout from "../app/components/layout";
-import Dashboard from "../app/components/dashboard";
+import Layout from "../app/components/layout"
+import Dashboard from "../app/components/dashboard"
 
-import styles from "../app/styles/Home.module.css";
+import styles from "../app/styles/Home.module.css"
 
 export default function Home() {
   return (
@@ -12,5 +12,5 @@ export default function Home() {
         </main>
       </div>
     </Layout>
-  );
+  )
 }

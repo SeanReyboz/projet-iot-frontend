@@ -88,11 +88,9 @@ const OverviewItem = ({ item, styles }) => {
           <div className={styles.ProfileInfo}>
             <div>
               <p>John Doe</p>
-              <img src="icons/text_edit.svg" alt="" />
             </div>
             <div>
               <p className={styles.Age}> 21 ans</p>
-              <img src="icons/text_edit.svg" alt="" />
             </div>
           </div>
         </div>

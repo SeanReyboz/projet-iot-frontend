@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 
-import List from "./parameter"
+import Params from "./parameter"
 import { useFetch } from "../hooks/useFetch"
 
-export default function Dashboard(props) {
+export default function Setting(props) {
   console.log(props)
 
   const url = "https://api.github.com/users"
@@ -22,6 +22,7 @@ export default function Dashboard(props) {
       ) : (
         <>
           <h2 className={props.title}>Welcome back, John Doe</h2>
+          <Params overview={users} {...props} />
         </>
       )}
     </>

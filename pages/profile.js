@@ -1,14 +1,14 @@
 import Layout from "../app/components/layout"
-import Dashboard from "../app/components/dashboard"
+import Profile from "../app/components/profile"
 
-import styles from "../app/styles/Home.module.css"
+import styles from "../app/styles/Profile.module.scss"
 
 export default function Home() {
   return (
     <Layout>
       <div className={styles.container}>
         <main className={styles.main}>
-          <Dashboard {...styles} />
+          <Profile {...styles} />
         </main>
       </div>
     </Layout>

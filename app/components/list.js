@@ -86,59 +86,21 @@ const ListItem = ({ item, styles }) => {
         >
           Résumé de la semaine
         </h2>
-        <div
-          className={styles.card}
-          style={{
-            display: "flex",
-            gap: "32px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              minWidth: "250px",
-              minHeight: "200px",
-              minWidth: "250px",
-              minHeight: "200px",
-              borderRadius: "20px",
-              display: "flow-root",
-              backgroundColor: "#E7FBEC",
-              border: "solid 1px #EAEAEA",
-            }}
-          >
-            <h3 style={information}>Rythme cardiaque</h3>
-            <p style={value}>62</p>
-            <p style={unite}>BPM</p>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <h3 className={styles.card_info}>Rythme cardiaque</h3>
+            <p className={styles.card_value}>62</p>
+            <p className={styles.card_unite}>BPM</p>
           </div>
-          <div
-            style={{
-              display: "flex",
-              minWidth: "250px",
-              minHeight: "200px",
-              borderRadius: "20px",
-              display: "flow-root",
-              backgroundColor: "#E7F2FB",
-              border: "solid 1px #EAEAEA",
-            }}
-          >
-            <h3 style={information}>Compressions</h3>
-            <p style={value}>102</p>
-            <p style={unite}>/min</p>
+          <div className={styles.card}>
+            <h3 className={styles.card_info}>Compressions</h3>
+            <p className={styles.card_value}>102</p>
+            <p className={styles.card_unite}>/min</p>
           </div>
-          <div
-            style={{
-              display: "flex",
-              minWidth: "250px",
-              minHeight: "200px",
-              borderRadius: "20px",
-              display: "flow-root",
-              backgroundColor: "#EFE7FB",
-              border: "solid 1px #EAEAEA",
-            }}
-          >
-            <h3 style={information}>Durée</h3>
-            <p style={value}>22</p>
-            <p style={unite}>min</p>
+          <div className={styles.card}>
+            <h3 className={styles.card_info}>Durée</h3>
+            <p className={styles.card_value}>22</p>
+            <p className={styles.card_unite}>min</p>
           </div>
         </div>
       </section>

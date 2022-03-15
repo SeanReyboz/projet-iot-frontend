@@ -3,27 +3,20 @@ import { useState, useEffect } from "react"
 /**
  * Interroge et récupère les données de l'URL donnée.
  */
-const useFetch = url => {
+export const useFetch = (url) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
+  const getData = async () => {
+    const response = await fetch(url)
+    const parsed = await response.json()
+    setData(parsed)
+    setIsLoading(false)
+  }
+
   useEffect(() => {
-    fetch(url)
-      .then(resp => {
-        console.log(resp)
-        resp.json().then(json => {
-          console.log(json)
-          setData(json)
-        })
-        setIsLoading(false)
-      })
-      .catch(err => {
-        console.error(err)
-        setIsLoading(false)
-      })
-  }, [])
+    getData()
+  }, [url])
 
   return { isLoading, data }
 }
-
-export { useFetch }

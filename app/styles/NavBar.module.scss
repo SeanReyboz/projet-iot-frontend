@@ -10,16 +10,6 @@
   gap: 20%;
   background-color: #1e1e24;
   border-radius: 0 30px 30px 0;
-
-  @media screen and (max-width: 768px) {
-    top: unset;
-    bottom: 0;
-    left: 0;
-    height: 72px;
-    flex-direction: row;
-    width: 100vw;
-    border-radius: 0;
-  }
 }
 
 .container__entry {
@@ -88,6 +78,20 @@
     height: 72px;
     flex-direction: row;
     width: 100vw;
-    border-radius: 0;
+    border-radius: 30px 30px 0 0;
+    gap: 4rem;
+    justify-content: center;
+  }
+  .profilePic {
+    margin-top: 0;
+    width: 45px;
+    height: 45px;
+  }
+  .ball {
+    margin-top: 0;
+  }
+  .container__entry {
+    flex-direction: row;
+    gap: 3rem;
   }
 }

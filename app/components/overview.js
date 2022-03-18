@@ -1,5 +1,6 @@
 import React from "react"
 import { Chart } from "react-chartjs-2"
+import { useFetch } from "../hooks/useFetch"
 import {
   Chart as ChartJS,
   LinearScale,
@@ -22,11 +23,23 @@ ChartJS.register(
 import styles from "../styles/NavBar.module.scss"
 
 export default function Overview({ list, ...styles }) {
-  return <OverviewItem styles={styles} />
+  const { isLoading, data } = useFetch("http://localhost:8888/stats")
+  const Pression_average =
+    isLoading || Math.round(data["pressions"]["average"] / data["totalSeance"])
+  console.log(Pression_average)
+  return (
+    isLoading || (
+      <OverviewItem
+        styles={styles}
+        api={data}
+        Pression_average={Pression_average}
+      />
+    )
+  )
 }
 const labels = ["1", "2", "2", "4", "5", "6", "7"]
 
-const OverviewItem = ({ item, styles }) => {
+const OverviewItem = ({ item, styles, api, Pression_average }) => {
   const data = {
     labels,
     datasets: [
@@ -73,6 +86,8 @@ const OverviewItem = ({ item, styles }) => {
     //   <code className={styles.code}>{item.login}</code>
     // </li>
     <>
+      {console.log(api)}
+
       <section>
         <div className={styles.ProfileEdit}>
           <img
@@ -119,12 +134,13 @@ const OverviewItem = ({ item, styles }) => {
           <div className={styles.cards}>
             <div className={styles.card}>
               <h3 className={styles.card_info}>Nombre de séance</h3>
-              <p className={styles.card_value}>12</p>
+              <p className={styles.card_value}>{api["totalSeance"]}</p>
             </div>
             <div className={styles.card}>
               <h3 className={styles.card_info}>BPM moyen</h3>
               <div className={styles.card_value}>
-                <p style={{ margin: "auto" }}>78</p>
+                {console.log(api)}
+                <p style={{ margin: "auto" }}>{api["bpm"]["average"]}</p>
                 <img
                   src="icons/arrow_data.svg"
                   alt=""
@@ -152,7 +168,7 @@ const OverviewItem = ({ item, styles }) => {
             <div className={styles.card}>
               <h3 className={styles.card_info}>Durée des séances</h3>
               <div className={styles.card_value}>
-                <p style={{ margin: "auto" }}>78</p>
+                <p style={{ margin: "auto" }}>{api["duration"]["average"]}</p>
                 <img
                   src="icons/arrow_data.svg"
                   alt=""
@@ -186,7 +202,7 @@ const OverviewItem = ({ item, styles }) => {
             </div>
             <div className={styles.card}>
               <h3 className={styles.card_info}>Nombre de pression moyen</h3>
-              <p className={styles.card_value}>67</p>
+              <p className={styles.card_value}>{Pression_average}</p>
               <p className={styles.card_unite}>/min</p>
             </div>
             <div className={styles.card}>

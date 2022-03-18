@@ -10,6 +10,8 @@ import {
   Legend,
   Tooltip,
 } from "chart.js"
+import { useFetch } from "../hooks/useFetch"
+import { useState, useEffect } from "react"
 ChartJS.register(
   LinearScale,
   CategoryScale,
@@ -21,17 +23,27 @@ ChartJS.register(
 )
 
 export default function List({ list, ...styles }) {
+  const { isLoading, data } = useFetch("http://localhost:8888/seances/latest")
+  const [seance, setseance] = useState([])
+  useEffect(() => {
+    setseance(data)
+  }, [data])
+  console.log(seance)
   return (
-    <ul className={styles.grid}>
-      {list.map((item) => {
-        return <ListItem key={item.id} item={item} styles={styles} />
-      })}
-    </ul>
+    isLoading || (
+      <ul className={styles.grid}>
+        {list.map((item) => {
+          return (
+            <ListItem key={item.id} item={item} styles={styles} api={seance} />
+          )
+        })}
+      </ul>
+    )
   )
 }
 const labels = ["1", "2", "2", "4", "5", "6", "7"]
 
-const ListItem = ({ item, styles }) => {
+const ListItem = ({ item, styles, api }) => {
   const data = {
     labels,
     datasets: [
@@ -89,17 +101,17 @@ const ListItem = ({ item, styles }) => {
         <div className={styles.cards}>
           <div className={styles.card}>
             <h3 className={styles.card_info}>Rythme cardiaque</h3>
-            <p className={styles.card_value}>62</p>
+            <p className={styles.card_value}>{api["bpm"]["average"]}</p>
             <p className={styles.card_unite}>BPM</p>
           </div>
           <div className={styles.card}>
             <h3 className={styles.card_info}>Compressions</h3>
-            <p className={styles.card_value}>102</p>
+            <p className={styles.card_value}>{api["pressions"]["total"]}</p>
             <p className={styles.card_unite}>/min</p>
           </div>
           <div className={styles.card}>
             <h3 className={styles.card_info}>Durée</h3>
-            <p className={styles.card_value}>22</p>
+            <p className={styles.card_value}>{api["duration"]}</p>
             <p className={styles.card_unite}>min</p>
           </div>
         </div>

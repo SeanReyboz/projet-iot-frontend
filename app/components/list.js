@@ -29,21 +29,12 @@ export default function List({ list, ...styles }) {
     setseance(data)
   }, [data])
   console.log(seance)
-  return (
-    isLoading || (
-      <ul className={styles.grid}>
-        {list.map((item) => {
-          return (
-            <ListItem key={item.id} item={item} styles={styles} api={seance} />
-          )
-        })}
-      </ul>
-    )
-  )
+
+  return isLoading || <ListItem styles={styles} api={seance} />
 }
 const labels = ["1", "2", "2", "4", "5", "6", "7"]
 
-const ListItem = ({ item, styles, api }) => {
+const ListItem = ({ styles, api }) => {
   const data = {
     labels,
     datasets: [
